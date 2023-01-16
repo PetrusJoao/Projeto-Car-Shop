@@ -3,8 +3,7 @@ import {
   Schema,
   model,
   models,
-  // UpdateQuery,
-  // isValidObjectId,body
+  UpdateQuery,
 } from 'mongoose';
 import ICar from '../Interfaces/ICar';
 
@@ -35,6 +34,14 @@ class CarODM {
 
   public async findById(id: string) {
     return this.model.findById(id);
+  }
+
+  public async updateOne(id: string, obj: Partial<ICar>): Promise<ICar | null> {
+    return this.model.findOneAndUpdate(
+      { id },
+      { ...obj } as UpdateQuery<ICar>,
+      { new: true },
+    );
   }
 }
 

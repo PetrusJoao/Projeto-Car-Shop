@@ -51,7 +51,23 @@ class CarService {
         seatsQty: car.seatsQty,
       };
     }
-    // return car;
+  }
+
+  public async updateById(id: string, carToUpdate: ICar) {
+    const carODM = new CarODM();
+    const car = await carODM.updateOne(id, carToUpdate);
+    if (car) {
+      return {
+        id: car.id,
+        model: car.model,
+        year: car.year,
+        color: car.color,
+        status: car.status,
+        buyValue: car.buyValue,
+        doorsQty: car.doorsQty,
+        seatsQty: car.seatsQty,
+      };
+    }
   }
 }
 
