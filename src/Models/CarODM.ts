@@ -28,16 +28,14 @@ class CarODM {
   public async create(car: ICar): Promise<ICar> {
     return this.model.create({ ...car });
   }
-  // 
-  //   public async update(id: string, obj: Partial<ICars>): Promise<ICars | null> {
-  //     if (!isValidObjectId(id)) throw Error('Invalid Mongo id');
-  // 
-  //     return this.model.findByIdAndUpdate(
-  //       { _id: id },
-  //       { ...obj } as UpdateQuery<ICars>,
-  //       { new: true },
-  //     );
-  //   }
+
+  public async findAll() {
+    return this.model.find();
+  }
+
+  public async findById(id: string) {
+    return this.model.findById(id);
+  }
 }
 
 export default CarODM;

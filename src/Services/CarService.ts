@@ -19,6 +19,40 @@ class CarService {
       });
     }
   }
+
+  public async getAllCars() {
+    const carODM = new CarODM();
+    const result = await carODM.findAll();
+    const cars = result.map((car) => ({
+      id: car.id,
+      model: car.model,
+      year: car.year,
+      color: car.color,
+      status: car.status,
+      buyValue: car.buyValue,
+      doorsQty: car.doorsQty,
+      seatsQty: car.seatsQty,
+    }));
+    return cars;
+  }
+
+  public async getById(id: string) {
+    const carODM = new CarODM();
+    const car = await carODM.findById(id);
+    if (car) {
+      return {
+        id: car.id,
+        model: car.model,
+        year: car.year,
+        color: car.color,
+        status: car.status,
+        buyValue: car.buyValue,
+        doorsQty: car.doorsQty,
+        seatsQty: car.seatsQty,
+      };
+    }
+    // return car;
+  }
 }
 
 export default CarService;
