@@ -127,7 +127,7 @@
 <details>
   <summary><strong>⚠️ Informações importantes sobre o projeto </strong></summary>
 
-  ### ⚠️ Leia-os atentamente e siga à risca o que for pedido. ⚠️
+  ### ⚠️ Leia-os atentamente e siga à risca o que foi pedido. ⚠️
 
   #### 👀 Observações importantes:
 
